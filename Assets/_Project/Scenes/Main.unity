@@ -952,6 +952,43 @@ MonoBehaviour:
   _sensitivity: 2
   _pitchMin: -80
   _pitchMax: 80
+--- !u!143 &1870413569
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870413566}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.8
+  m_Radius: 0.3
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &1870413570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870413566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c71a48a5e58a04e82463d0de373445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
 --- !u!1 &1895910289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,6 +1195,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3304938556680756639, guid: 9d7df09278e244444ad5695656d265ac, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1870413568}
+    - targetCorrespondingSourceObject: {fileID: 3304938556680756639, guid: 9d7df09278e244444ad5695656d265ac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1870413569}
+    - targetCorrespondingSourceObject: {fileID: 3304938556680756639, guid: 9d7df09278e244444ad5695656d265ac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1870413570}
   m_SourcePrefab: {fileID: 100100000, guid: 9d7df09278e244444ad5695656d265ac, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
