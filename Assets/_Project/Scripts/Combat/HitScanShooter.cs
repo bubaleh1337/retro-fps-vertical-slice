@@ -9,12 +9,17 @@ namespace RetroSlice.Combat
         [SerializeField] private Transform _rayOrigin;
         [SerializeField] private Transform _muzzle;
         [SerializeField] private WeaponConfig _config;
+        [SerializeField] private GameObject _muzzleFlashPrefab;
 
         [Header("Tuning")]
         [SerializeField] private float _range = 50f;
         [SerializeField] private float _fireCooldown = 0.1f; // how long we must wait between shots (seconds)
         [SerializeField] private int _maxAmmo = 12;
         [SerializeField] private float _reloadDuration = 1.0f;
+
+        [SerializeField] private float _flashLifetime = 0.06f;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _fireClip;
 
         [Header("Running")]
         private float _nextFireTime;
@@ -50,14 +55,14 @@ namespace RetroSlice.Combat
             if (Input.GetKeyDown(KeyCode.R) && !_isReloading && _currentAmmo < _maxAmmo)
             {
                 _isReloading = true;
-                _reloadEndTime = Time.time + _reloadDuration; // reload will be finished at this absolute time
-                Debug.Log($"On reload start: Time.time = {Time.time}, _reloadlEndTime = {_reloadEndTime}");
+                //_reloadEndTime = Time.time + _reloadDuration; // reload will be finished at this absolute time
+                //Debug.Log($"On reload start: Time.time = {Time.time}, _reloadlEndTime = {_reloadEndTime}");
                 return;
             }
             if (!_isReloading && _currentAmmo > 0 && Input.GetMouseButton(0) && Time.time >= _nextFireTime)
             {
                 _nextFireTime = Time.time + _fireCooldown; // the earliest time when shooting is allowed again
-                Debug.Log($"On fire: Time.time = {Time.time}, cooldown = {_fireCooldown}");
+                //Debug.Log($"On fire: Time.time = {Time.time}, cooldown = {_fireCooldown}");
                 _currentAmmo--;
                 Fire();
             }
@@ -74,6 +79,17 @@ namespace RetroSlice.Combat
                 end = hit.point;
             }
             Debug.DrawLine(origin, end, Color.red, 0.1f);
+
+            if (_muzzleFlashPrefab != null && _muzzle != null)
+            {
+                GameObject flashInstance = Instantiate(_muzzleFlashPrefab, _muzzle.position, _muzzle.rotation, _muzzle);
+                Destroy(flashInstance, _flashLifetime);
+            }
+
+            if (_audioSource != null && _fireClip != null)
+            {
+                _audioSource.PlayOneShot(_fireClip);
+            }
         }
     }
 }
