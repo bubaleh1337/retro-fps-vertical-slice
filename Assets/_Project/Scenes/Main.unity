@@ -954,6 +954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HitScanShooter
   _rayOrigin: {fileID: 469279707}
   _muzzle: {fileID: 401024922}
+  _config: {fileID: 11400000, guid: 1c1a4f84334950c4480e415a57b3e565, type: 2}
   _range: 50
   _fireCooldown: 0.2
   _maxAmmo: 5

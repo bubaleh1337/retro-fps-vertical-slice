@@ -1,4 +1,5 @@
 using UnityEngine;
+using RetroSlice.Weapons;
 
 namespace RetroSlice.Combat
 {
@@ -7,6 +8,7 @@ namespace RetroSlice.Combat
         [Header("References")]
         [SerializeField] private Transform _rayOrigin;
         [SerializeField] private Transform _muzzle;
+        [SerializeField] private WeaponConfig _config;
 
         [Header("Tuning")]
         [SerializeField] private float _range = 50f;
@@ -22,6 +24,19 @@ namespace RetroSlice.Combat
 
         void Awake()
         {
+            if (_config == null)
+            {
+                Debug.LogError("HitScanShooter: WeaponConfig is not assigned.", this);
+                enabled = false;
+                return;
+
+            }
+
+            _range = _config.Range;
+            _fireCooldown = _config.FireCooldown;
+            _maxAmmo = _config.MaxAmmo;
+            _reloadDuration = _config.ReloadDuration;
+
             _currentAmmo = _maxAmmo;
         }
 
@@ -42,7 +57,7 @@ namespace RetroSlice.Combat
             if (!_isReloading && _currentAmmo > 0 && Input.GetMouseButton(0) && Time.time >= _nextFireTime)
             {
                 _nextFireTime = Time.time + _fireCooldown; // the earliest time when shooting is allowed again
-                Debug.LogFormat($"On fire: Time.time = {Time.time}, _fireCooldown = {_fireCooldown}");
+                Debug.Log($"On fire: Time.time = {Time.time}, cooldown = {_fireCooldown}");
                 _currentAmmo--;
                 Fire();
             }
