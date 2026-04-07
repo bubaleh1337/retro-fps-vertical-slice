@@ -955,7 +955,9 @@ MonoBehaviour:
   _rayOrigin: {fileID: 469279707}
   _muzzle: {fileID: 401024922}
   _range: 50
-  _fireCooldown: 0.1
+  _fireCooldown: 0.2
+  _maxAmmo: 5
+  _reloadDuration: 1
 --- !u!4 &1708812349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6569687330486749575, guid: 9d7df09278e244444ad5695656d265ac, type: 3}
