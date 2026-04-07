@@ -55,8 +55,9 @@ namespace RetroSlice.Combat
             if (Input.GetKeyDown(KeyCode.R) && !_isReloading && _currentAmmo < _maxAmmo)
             {
                 _isReloading = true;
-                //_reloadEndTime = Time.time + _reloadDuration; // reload will be finished at this absolute time
+                _reloadEndTime = Time.time + _reloadDuration; // reload will be finished at this absolute time
                 //Debug.Log($"On reload start: Time.time = {Time.time}, _reloadlEndTime = {_reloadEndTime}");
+                Debug.Log("Reloading");
                 return;
             }
             if (!_isReloading && _currentAmmo > 0 && Input.GetMouseButton(0) && Time.time >= _nextFireTime)
@@ -65,6 +66,7 @@ namespace RetroSlice.Combat
                 //Debug.Log($"On fire: Time.time = {Time.time}, cooldown = {_fireCooldown}");
                 _currentAmmo--;
                 Fire();
+                Debug.Log("Shooting");
             }
             
         }
