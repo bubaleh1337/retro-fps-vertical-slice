@@ -21,6 +21,9 @@ namespace RetroSlice.Combat
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private AudioClip _fireClip;
 
+        [Header("Damage")]
+        [SerializeField] private int _damagePerShot = 10;
+
         [Header("Running")]
         private float _nextFireTime;
         private int _currentAmmo;
@@ -79,6 +82,11 @@ namespace RetroSlice.Combat
             if (Physics.Raycast(origin, direction, out RaycastHit hit,_range))
             {
                 end = hit.point;
+                Damageable dmg = hit.collider.GetComponentInParent<Damageable>();
+                if (dmg != null)
+                {
+                    dmg.TakeDamage(_damagePerShot);
+                }
             }
             Debug.DrawLine(origin, end, Color.red, 0.1f);
 
