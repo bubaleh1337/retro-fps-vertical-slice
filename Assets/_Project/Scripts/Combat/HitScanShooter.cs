@@ -31,6 +31,9 @@ namespace RetroSlice.Combat
         private bool _isReloading;
         private float _reloadEndTime;
 
+        public int CurrentAmmo => _currentAmmo;
+        public int MaxAmmo => _maxAmmo;
+
         void Awake()
         {
             if (_config == null)
