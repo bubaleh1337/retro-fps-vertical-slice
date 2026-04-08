@@ -10,6 +10,7 @@ namespace RetroSlice.Combat
         [SerializeField] private Transform _muzzle;
         [SerializeField] private WeaponConfig _config;
         [SerializeField] private GameObject _muzzleFlashPrefab;
+        [SerializeField] private RetroSlice.UI.HitMarkerUI _hitMarker;
 
         [Header("Tuning")]
         [SerializeField] private float _range = 50f;
@@ -86,6 +87,7 @@ namespace RetroSlice.Combat
                 if (dmg != null)
                 {
                     dmg.TakeDamage(_damagePerShot);
+                    _hitMarker.ShowHit();
                 }
             }
             Debug.DrawLine(origin, end, Color.red, 0.1f);
