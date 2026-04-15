@@ -2333,6 +2333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1336692155}
+  - component: {fileID: 1336692156}
   m_Layer: 0
   m_Name: GameBootstrap
   m_TagString: Untagged
@@ -2355,6 +2356,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1336692156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336692154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e716364562f0c43824fa279b34af73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameBootstrap
 --- !u!1 &1395656023
 GameObject:
   m_ObjectHideFlags: 0
@@ -3961,8 +3974,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   _controller: {fileID: 1870413569}
-  _moveSpeed: 5
   _gravity: -20
+  _walkSpeed: 5
+  _sprintMultiplier: 1.6
+  _jumpHeight: 1.2
 --- !u!114 &1870413571
 MonoBehaviour:
   m_ObjectHideFlags: 0
