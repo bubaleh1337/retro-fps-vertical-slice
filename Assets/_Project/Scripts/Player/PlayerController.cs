@@ -8,8 +8,9 @@ namespace RetroSlice.Player
         [SerializeField] private CharacterController _controller;
 
         [Header("Tuning")]
-        [SerializeField] private float _moveSpeed = 5f;
         [SerializeField] private float _gravity = -20f;
+        [SerializeField] private float _walkSpeed = 5f;
+        [SerializeField] private float _sprintMultiplier = 1.6f;
 
         private Vector3 _velocity;
 
@@ -23,9 +24,11 @@ namespace RetroSlice.Player
         {
             float x = Input.GetAxisRaw("Horizontal");
             float z = Input.GetAxisRaw("Vertical");
+            bool sprint = Input.GetKey(KeyCode.LeftShift);
 
             Vector3 move = (transform.right * x) + (transform.forward * z);
-            _controller.Move(move * _moveSpeed * Time.deltaTime);
+            float speed = sprint ? _walkSpeed * _sprintMultiplier : _walkSpeed;
+            _controller.Move(move * speed * Time.deltaTime);
 
             if (_controller.isGrounded && _velocity.y < 0f)
                 _velocity.y = -2f;
