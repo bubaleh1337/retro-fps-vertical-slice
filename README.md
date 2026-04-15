@@ -1,6 +1,7 @@
 # Retro FPS Vertical Slice (2000s Style)
 
 A small, playable early-2000s-inspired FPS vertical slice built in Unity. The focus is tight gameplay feel (movement + hitscan shooting), clean architecture, and portfolio-ready packaging.
+![Hitmarker](Docs/Media/hitmarker.png)
 
 ## What this project demonstrates
 - First-person controller (CharacterController), mouse look (yaw/pitch clamp)
@@ -61,12 +62,9 @@ A small, playable early-2000s-inspired FPS vertical slice built in Unity. The fo
 ## Screenshots / GIFs
 > Add 3–6 screenshots and 1–2 short GIFs here.
 
-- `./_images/1_M1-T1_structure_and_first_scene.png`
-- `./_images/2_M2-T5_Firing_and_Reload.mkv`
-- `./_images/2_M2-T5_HitScanShooter_with_PistolConfig_and_audio.png`
-- `./_images/3_M4_Shooting_with_HUD_visible.png`
-- `./_images/4_M4_Shooting_hit_marker_moment.png`
-- `./_images/5_M4_Room_Layout.png`
+![Shooting](Docs/Media/shooting.png)
+![Layout](Docs/Media/layout.png)
+![Hitmarker](Docs/Media/hitmarker.png)
 
 ## Roadmap (small next steps)
 - Convert input fully to the New Input System Actions (remove legacy axes usage).
